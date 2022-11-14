@@ -2,11 +2,11 @@
 
 ## Website
 
-<p> TODO </p>
+<p> https://tronheartbeat.vercel.app/react/demo </p>
 
 ## Video Link
 
-<p> TODDO </p>
+<p> https://youtu.be/20QgMR3VFto </p>
 
 <br>
 
