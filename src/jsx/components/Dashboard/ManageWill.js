@@ -83,7 +83,7 @@ const MyWallet = ({
 	}
 
 
-	const initiateWill = async ( finalMessage="This is my final Will", dt1=10, dt2=10, dt3=50, dt4=50 ) => {
+	const initiateWill = async ( finalMessage="This is my final Will", dt1=20, dt2=20, dt3=50, dt4=50 ) => {
 		console.log(`Initiate Will Button Clicked`)
         if (tronWeb && will)
 		{
@@ -213,10 +213,10 @@ const MyWallet = ({
 				<div className="col-xl-1 col-xxl-4"></div>
 
 
-				<div className="col-xl-3 col-xxl-8">
+				<div className="col-xl-3 col-xxl-8" onClick = { () => proofOfLife()}>
 					<div className="card"style={{backgroundColor:""}}>
 						<div className="card-header border-0 text-center mx-auto pb-0">
-							<h4 className="mb-0 fs-20 text-black"  onClick = { () => proofOfLife()} >HeartBeat</h4>
+							<h4 className="mb-0 fs-20 text-black">HeartBeat</h4>
 						</div>
 						<div className="card-body" style={{height:"auto"}}>
 

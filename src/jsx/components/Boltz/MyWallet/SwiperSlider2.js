@@ -11,7 +11,7 @@ import SwiperCore, {  Scrollbar,Mousewheel} from 'swiper/core';
 
 SwiperCore.use([Scrollbar,Mousewheel]);
 
-const SwiperSlider2= ({ allAdminAccounts, getClickedAccount, currentAccount, provider, wallet, ntt54Will,  }) => {
+const SwiperSlider2= ({ allAdminAccounts, getClickedAccount,  }) => {
  
   const [swiperBlog, setSwiperBlog] = useState([{image: Card2, address: "999TVb6TusyyPYPSg6QfJAgrM3zoEFGa9iCq4"}]);
 
