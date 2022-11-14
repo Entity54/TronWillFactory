@@ -20,7 +20,6 @@ const MyWallet = ({ tronWeb, tronAccount, willFactory, tronAccountIsWillOwner, t
 	const [permaWillAddress, setPermaWillAddress] = useState("");
  
 
-	//#region registerNewAccount
 	const registerNewAccount = async () => {
 		console.log(`We will now register a new account ${newAccountToRegister} willAdmininstrator:${willAdmininstrator} Please wait... `);
 

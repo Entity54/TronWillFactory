@@ -173,9 +173,6 @@ const SideBar = () => {
           <li className={`${charts.includes(path) ? "mm-active" : ""}`}>
             <Link className="ai-icon" to="/RegisterBeneficiaries"><i className="fa fa-users"></i> <span className="nav-text">Register Beneficiaries</span></Link>
           </li>
-          {/* <li className={`${charts.includes(path) ? "mm-active" : ""}`}>
-            <Link className="ai-icon" to="/initate-will"><i className="flaticon-025-dashboard"></i> <span className="nav-text">Initate Will</span></Link>
-          </li> */}
           <li className={`${charts.includes(path) ? "mm-active" : ""}`}>
             <Link className="ai-icon" to="/readme"><i className="fa fa-book"></i> <span className="nav-text">Readme</span></Link>
 

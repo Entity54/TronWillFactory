@@ -1,18 +1,9 @@
 import React,{useState,useContext, useEffect} from 'react';
 import { ThemeContext } from "../../../context/ThemeContext";
-import MARKET from "./MARKET";
-
 import PerfectScrollbar from "react-perfect-scrollbar";
 import { Link } from "react-router-dom";
-// import React, { Fragment } from "react";
 
 
-
- 
-
-
-
-// const DashboardDark = ({ setupSpecs, oracleData, blockHeader, accountList }) => {
 const DashboardDark = () => {
 
 	const { changeBackground, background } = useContext(ThemeContext);
@@ -27,22 +18,14 @@ const DashboardDark = () => {
 			<div className="row">
 				<div className="row">
 					<div className="col-xl-12">
-
-						{/* <MARKET className="col-xl-12" blockHeader={blockHeader} oracleData={oracleData}/>	 */}
-
 						<div className="row">
-
-
-
-{/* <div className="col-xl-1 col-xxl-6 col-lg-6">
-</div> */}
 
 <div className="col-xl-12 col-xxl-6 col-lg-6">
 
   <div className="card">
 
 	<div className="card-header border-1 pb-4">
-	  <h4 className="card-title">Setting up your Will</h4>
+	  <h4 className="card-title">Instructions</h4>
 	</div>
 
 	<div className="card-body">
@@ -58,20 +41,18 @@ const DashboardDark = () => {
 			  className="timeline-panel text-muted"
 			  to="/widget-basic"
 			>
-			  {/* <span>Register Accounts</span> */}
 			  <strong className="text-primary">Register Accounts</strong>.
 
 			  <p className="mb-0">
-				Head to Reigster Account to register one by one all your accounts
-				The first on will be your admin you are already signed in 
-				In this demo we have used 1 registered account the Will Administrator
-				Bear in mind that the Registered Accounts notifies the will smart contract that 
-				tokens can be transfered at Stage 3 from the account to the smart contract
-				Until stage 3 we can use those accounts as we like.
-				For each account we need to Approve and Register the tokens we want to be elgible for 
-				the smart contract to transfer at stage 3. In this example we have used ACA and AUSD
+			  ## STEP 1 Heartbeat Dashboard
+
+As soon as we land on HeartBeat Dashboard the Website checks with the willFactory if a Will smart contract has been registered for this account
+Each Tron account is allowed to register only one will, but in this Will multiple accounts can be registered
+If the user account already does not own a Will smart contract then "Create Will" button is lit red 
+Press the Create Will to generate your person Will smart contract via the willFactory
+As soon as the transaction is mined and the website runs next check, it will be picked up that the Will smart contract is generated and the "Initiate Will" button will lit red
+Do not press it yet
 				{" "}
-				{/* <strong className="text-primary">$500</strong>. */}
 			  </p>
 			</Link>
 		  </li>
@@ -81,19 +62,19 @@ const DashboardDark = () => {
 			  className="timeline-panel text-muted"
 			  to="/widget-basic"
 			>
-			  {/* <span>20 minutes ago</span> */}
 			  <strong className="text-primary">Fees</strong>.
 			  <p className="mb-0">
-				The user must deposit ACA (recommened 2 ACA). This will be used by the scheduler to keep
-				pinging the smart contract.
-				(In the future the user will have to deposit also 2000 AUSD which will be staked)
-				Fees are collected after final will stage and split equally (what is left) to beneficiaries
-				{" "}
-				{/* <strong className="text-info">#XF-2356.</strong> */}
+			  ## STEP 2 Register Accounts
+
+Paste your connected Tron Link account address into the "New Tron Account to Register" and Click "Register Account"
+As soon as the transaction is mined on the left hand side we can see a card with the registered Account
+Automatically the balance of the account in USDT, BTT, WIN, JST is loaded and for each token a green button "Approve" and a yellow one "Register" next to each token
+Clicking approve for each token ensures that you approve your Will smart contract to transfer any balance from your account to the smart contract when it is established that death has come
+This offers the benefit that you can keep using your account as normal and any balances left will only be transfered when necessary conditions are met
+Registering each token informs the Will smart contract  that it can transfer (proividing approval has been passed) from your accoutn to your Will smart contract account
+Once for each of the tokens that you want to pass to your Will smart contract is approved and registered the buttons tunr grey and become disabled
+Currently only USDT, BTT, WIN, JST tokens are compatible with the project as tryign to build proof of concept
 			  </p>
-			  {/* <p className="mb-0">
-				Quisque a consequat ante Sit amet magna at volutapt...
-			  </p> */}
 			</Link>
 		  </li>
 		  <li>
@@ -102,16 +83,11 @@ const DashboardDark = () => {
 			  className="timeline-panel text-muted"
 			  to="/widget-basic"
 			>
-			  {/* <span>30 minutes ago</span> */}
 			  <strong className="text-primary">Register Beneficiaries</strong>
 			  <p className="mb-0">
-				Here the administrator can register the beneficiaries one by one 
-				Place the beneficiary EVM address, nickname, message, percent of the cash inheritance to receive e.g. for 60% place 60
-				(In the future NFTs assets to pass to benefiaries will be permitted and MultiSigs for non-adults, pets, institutions will be allowed)
-				You can also amend beneficiaries' details or remove a beneficiary (click on beneficiary card to select). 
-				In this example we have used 2 beneficiaries
-				{" "}
-				{/* <strong className="text-warning">Sell $250</strong> */}
+			  In this page you have to type the heir tronlink address, the nickname you want to give them, the final message and the percentage allocation
+Clicking "Register Beneficiary" will register the account adn the releavnt detials in your will smart contract and a crad will appear on the left
+Note: You can come back at any point (while your will is still active) and Amed or Remove any of the beneficiaries
 			  </p>
 			</Link>
 		  </li>
@@ -121,60 +97,28 @@ const DashboardDark = () => {
 			  className="timeline-panel text-muted"
 			  to="/widget-basic"
 			>
-			  {/* <span>15 minutes ago</span> */}
 			  <strong className="text-primary">Initiate Will</strong>
 			  <p className="mb-0">
-				Place a generic final message (not to exceed 64 characters)
-				State the trigger point intervals 
-				For example for dt1=10, dt2=10, dt3=10, LastCall=10 the following will occur
-				As soon the user clicks Initate the Will is signed and Active at block number X e.g. 100
-				At block number 110 if the smart contract has not received Proof of life then it will move to Stage 1
-				At block number 120 if the smart contract has not received Proof of life then it will move to Stage 2
-				At block number 130 if the smart contract has not received Proof of life then it will move to Stage 3
-				   Now all registered tokens for each of the registered account will be transfered to the smart contract
-				   If the will administrator is still alive and cliks Void button he cancels the Will and deposited funds are returned to the registered accounts that have been transfered from 
-				At block number 140 if the smart contract has not received Proof of life then it will move to Stage 4
-				   This is the point of no return. All tokens deposited to the smart contract (please note tokens deposited as fees ACA and AUSD are kept separate to maintain smart contract operation)
-				   are swapped for Acala Dollar AUSD.
-				At block number 145 (by default 5 blocks later than the swaps) all AUSD is split and transfered out of the smart contract to the beneficiaries as per the seetings established at Register Beneficiaries setup
-                (in the future the smart contact will unstake any AUSD staked at Fees step and together with any remaining ACA will be transferred to the beneficiaries evenly)
-                (couple of blocks later and the Will Smart contract resets deleting registered accounts of administrator and registered beneficiaries)
-				{" "}
-			  </p>
-			</Link>
-		  </li>
-		  <li>
-			<div className="timeline-badge warning"></div>
-			<Link
-			  className="timeline-panel text-muted"
-			  to="/widget-basic"
-			>
-			  {/* <span>20 minutes ago</span> */}
-			  <strong className="text-primary">Manage Will</strong>
-			  <p className="mb-0">
-				This is the Control dahsboard. This is the page the Will administrator visits and check state of the Will
-				Clicking Proof of Life <span>Alive & Kicking</span> (only administrator can click this) the administrator informs the smart contract that he is alive 
-				As long as this is clicked prior to Stage 3, all Trigger points are reset usign the orginal trigger intervals to be added to the current blovk number 
-				the first 2 lines shows the fees balances of admin adn smart contract and the NONCE of these account 
-				(smart contract has the functionality of detecting all administrator's registered accounts for the native ACA balance. If this decreases it means that either the account owner (will administrator)
-				has transfer ACA out or has signed a transaction (The button check account exhibits this finctionality but it should only be clicked by an account other than the will adminstrator and his registered accounts only place here for demo))
-				The next 4 lines show the balance across all tokens ACA, AUSD, DOT , LDOT, RENBTC for 
-				will smart contract, administrator, Beneficiary 1 and Beneficiary 2
-				(The button check Will Stage performs what is happening automatically by the scheduler )
-				NONE OF THE BUTTONS NEED TO BE CLICKED AND WILL REMOVED IN FUTURE VERSION AS THE SCHEDULER PERFORMS THESE ACTIONS
-			  </p>
-			</Link>
-		  </li>
-		  <li>
-			<div className="timeline-badge dark"></div>
-			<Link
-			  className="timeline-panel text-muted"
-			  to="/widget-basic"
-			>
-			  {/* <span>20 minutes ago</span> */}
-			  <strong className="text-primary">DEx</strong>
-			  <p className="mb-0">
-				A simple Acala DEX for the will admin and his beneficiaries to use. 
+			  ## STEP 4 Back to HeartBeat Dashboard
+
+You can now click the "Initiate Will" Red button and this will Start the clock for your Will smart contract
+
+Note: You can only Initiate Will once
+We can see that the Will State changes to Activated once the transaction is mined and the balances of USDT, JST, BTT and WIN for:
+Your registered Accounts (admin Accounts)
+Your Will smart contract
+Your beneficiaries
+are loaded
+In addition on the HeartBeat panel we can read
+Will State: True if it is active, false if it has not ben started or has expired (case of death)
+Will Stage
+Each active Will start at stage 0, moves to 1 after 80 blocks, 2 after 70 blocks, 3 after 60 blocks, 4 after 50 blocks, 5 after 50 blocks and finally 6 after 10 blocks
+Up to stage 3 inclusive the smart contract checks if either the Will owner has signed any transaction with any of his refistered accounts (proof of life 1) or has intentionally clicked omn the HeartBeat Panel. If not progresses from 0 to 3.
+In a similar way the Will smart contract prgresses to stage 4 but once this stage is reached any fund balances of any of the registered account and tokens e.g. USDT, BTT, JST, WIN will be trnasferred to the Will smart contract
+We can see visually the movement of funds from registered accounts to the Will smart contract
+Note: Even at stage 4 the Will owner cna invoke the refundFunds function of the smart contract to take back his funds
+At stage 5 the will is released. The funds sitting at the Will smart contract are being transfered out to the registered heirs at the precepcified percentages. Finally the Will smart contract state becomes false
+Note: In the HeartBeat panel we can see the Bloc numbers for each triggere point and also how many blocks remain till the completion of each Phase
 			  </p>
 			</Link>
 		  </li>
@@ -185,8 +129,6 @@ const DashboardDark = () => {
 </div>
 </div>
 
-{/* <div className="col-xl-3 col-xxl-6 col-lg-6">
-</div> */}
 
 					</div>
 				</div>

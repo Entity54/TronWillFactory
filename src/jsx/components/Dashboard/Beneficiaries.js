@@ -66,7 +66,7 @@ const MyWallet = ({
 		{
 			let beneficiaryAddresses  = await will.getWillBeneficiaries().call();
 			beneficiaryAddresses = beneficiaryAddresses.map(ac => tronWeb.address.fromHex(ac) );
-			console.log(`beneficiaryAddresses: `,JSON.stringify(beneficiaryAddresses)); //["TU9XxmnUQY3RRHMQfamMfAYLPUMGb77BfM"]
+			console.log(`beneficiaryAddresses: `,JSON.stringify(beneficiaryAddresses)); 
 
 			let beneficiariesArray = [];
 			if (beneficiaryAddresses.length>0)

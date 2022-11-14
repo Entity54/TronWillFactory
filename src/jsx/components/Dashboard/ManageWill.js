@@ -1,24 +1,9 @@
 import React,{Fragment,useContext, useState, useEffect} from 'react';
-// import {Link} from 'react-router-dom';
-// import { Dropdown } from "react-bootstrap";
 import loadable from "@loadable/component";
 import pMinDelay from "p-min-delay";
 
-//Import
 import { ThemeContext } from "../../../context/ThemeContext";
-// import Donut from "../Boltz/MyWallet/Donut";
-// import WalletTab from "../Boltz/MyWallet/WalletTab";
-// import BeneficiariesSlider from "../Boltz/MyWallet/BeneficiariesSlider";
-// import BenefiiarySettings from "../Boltz/MyWallet/BenefiiarySettings";
 
- 
-
-// import { getSchedulerCounter, get_WillBeneficiaries, aliveAndKicking, checkWillStage, checkAdminBalance, getWillStats, 
-// 	     getWillState, getWillStage, getSmartContractFeesBalances, getRegisteredAccount_ACA_Balance, 
-// 		 get_AdminAccounts, get_SmartContractNonce, getSmartContractAllBalances, getAccountBalances, 
-// 		 getInheritance_Cash } from '../../../ntt54_accounts.js';         
-
-// import QuickTransfer from '../Boltz/Home/QuickTransfer';
 
 const CoinChart = loadable(() =>
   pMinDelay(import("../Boltz/MyWallet/CoinChart"), 1000)
@@ -27,8 +12,6 @@ const CoinChart = loadable(() =>
 const MyWallet = ({ 
 		tronWeb, tronAccount, willFactory, tronAccountIsWillOwner, tronAccountOwnsWillAddress, set_WillAddress, blockHeader,
 		will, USDTtrc20, BTTtrc20, WINtrc20, JSTtrc20,
-		// schedulerTrigger, ntt54Will_address, willAdmin, 
-		// currentAccount, provider, wallet, ntt54Will
  }) => {
 	const { background } = useContext(ThemeContext);
 	const [willState  , setWillState]   = useState(false);
@@ -38,14 +21,10 @@ const MyWallet = ({
 	const [triggerPoint3  , setTriggerPoint3]           = useState("");
 	const [lastCallPoint  , setLastCallPoint]           = useState("");
 
-
 	const [adminBalances, setAdminBalances] = useState([]);
 	const [beneficiaryBalances, setBeneficiaryBalances] = useState([]);
 	const [willContractBalance, setWillContractBalance] = useState({accountAddress: "", usdtBalance: "", jstBalance:"", bttBalance:"", winBalance:"" });
 	const [wilStatus, setWilStatus] = useState({state:"", stage:"", triggerPoint1:"", triggerPoint2:"", triggerPoint3:"", lastCallPoint:"", distributionPoint:"", phase1:0, phase2:0, phase3:0, phase4:0, phase5:0, });
-
-
-
 
 
 	const createWill = async () => {
@@ -61,7 +40,7 @@ const MyWallet = ({
             console.log(`willsAddressesLength: ${willsAddressesLength}`);
 
 			const willAddress  = await willFactory.willsAddresses(willsAddressesLength-1).call();
-            console.log(`New Will has been created with willAddress:  `,willAddress); //410b677073a5a8d976d92b7ba159f9c249ce35cea1
+            console.log(`New Will has been created with willAddress:  `,willAddress); 
 			set_WillAddress(willAddress);
 		}
         else console.log(`tronWeb/willFactory not setup`);
@@ -149,7 +128,6 @@ const MyWallet = ({
 	}
 
 
-	//#region getBalances
 	const getBalances = async (accountAddress="TNjieKUNS8xGBpsSDToekhnQAf8YLbzjuV") => {
 		const usdtBalance  = tronWeb.fromSun(await USDTtrc20.balanceOf(accountAddress).call());
 		let bttBalance   = tronWeb.fromSun(tronWeb.fromSun(tronWeb.fromSun(await BTTtrc20.balanceOf(accountAddress).call())));
@@ -160,8 +138,6 @@ const MyWallet = ({
 	
 		return {accountAddress, usdtBalance, jstBalance, bttBalance, winBalance, } 
 	}
-	//#endregion 
-
 
 	const getAccountBalances = async () => {
 
@@ -217,11 +193,6 @@ const MyWallet = ({
 
 	}
 
-	// useEffect(() => {
-	// 	console.log(`Manage Will Page Loading tronAccount: ${tronAccount}`);
-	// 	// setClickedAccount(tronAccount);
-	// 	getAccountBalances();
-	// },[])
 
 	useEffect(() => {
 		const getSnapShot = async () => {

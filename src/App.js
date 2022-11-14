@@ -9,7 +9,6 @@ import will_artifact from './Abis/will.json';
 
 const willFactoryAbi = willFactory_artifact.abi;
 const willFactoryAddress = "TTRLq8EXy5p1Tj1BziP6B9nCtz9DAuvnTp";
-// const willFactoryAddress = "TBHLsbmX2mhSyWjXdh1fciCmHNbXHca8Yy";
 let willFactory;
 
 const willAbi = will_artifact.abi;
