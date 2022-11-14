@@ -30,7 +30,7 @@ const DashboardDark = () => {
 
 	<div className="card-body">
 	  <PerfectScrollbar
-		style={{ height: "780px" }}
+		style={{ height: "auto" }}
 		id="DZ_W_TimeLine"
 		className="widget-timeline dz-scroll height370 ps ps--active-y"
 	  >
@@ -41,17 +41,16 @@ const DashboardDark = () => {
 			  className="timeline-panel text-muted"
 			  to="/widget-basic"
 			>
-			  <strong className="text-primary">Register Accounts</strong>.
+			  <strong className="text-primary">STEP 1 - The Heartbeat Dashboard</strong>.
 
 			  <p className="mb-0">
-			  ## STEP 1 Heartbeat Dashboard
-
-As soon as we land on HeartBeat Dashboard the Website checks with the willFactory if a Will smart contract has been registered for this account
-Each Tron account is allowed to register only one will, but in this Will multiple accounts can be registered
-If the user account already does not own a Will smart contract then "Create Will" button is lit red 
-Press the Create Will to generate your person Will smart contract via the willFactory
-As soon as the transaction is mined and the website runs next check, it will be picked up that the Will smart contract is generated and the "Initiate Will" button will lit red
-Do not press it yet
+			  
+			  	As soon as we land on HeartBeat Dashboard the website checks with the willFactory to see if a Will smart contract has been registered for this account. (Checks are currently made every 10 blocks or approx 30 seconds)
+				Each Tron account is allowed to register only one will, but in this Will multiple accounts can be registered and added.
+				If the user account already does not own a Will smart contract then the "Create Will" button is red.
+				Press the Create Will to generate your personal Will smart contract via the willFactory.
+				As soon as the transaction is mined and the website runs its next check, the information will be picked up that the Will smart contract has been generated and the "Initiate Will" button will now light up red.
+				Do not press it yet.
 				{" "}
 			  </p>
 			</Link>
@@ -62,18 +61,17 @@ Do not press it yet
 			  className="timeline-panel text-muted"
 			  to="/widget-basic"
 			>
-			  <strong className="text-primary">Fees</strong>.
+			  <strong className="text-primary">STEP 2 - Register Accounts</strong>.
 			  <p className="mb-0">
-			  ## STEP 2 Register Accounts
-
-Paste your connected Tron Link account address into the "New Tron Account to Register" and Click "Register Account"
-As soon as the transaction is mined on the left hand side we can see a card with the registered Account
-Automatically the balance of the account in USDT, BTT, WIN, JST is loaded and for each token a green button "Approve" and a yellow one "Register" next to each token
-Clicking approve for each token ensures that you approve your Will smart contract to transfer any balance from your account to the smart contract when it is established that death has come
-This offers the benefit that you can keep using your account as normal and any balances left will only be transfered when necessary conditions are met
-Registering each token informs the Will smart contract  that it can transfer (proividing approval has been passed) from your accoutn to your Will smart contract account
-Once for each of the tokens that you want to pass to your Will smart contract is approved and registered the buttons tunr grey and become disabled
-Currently only USDT, BTT, WIN, JST tokens are compatible with the project as tryign to build proof of concept
+			  
+				Paste your connected Tron Link account address into the "New Tron Account to Register" and Click "Register Account".
+				As soon as the transaction is mined on the left hand side we can see a card with the registered account.
+				Automatically, the balances of the account in USDT, BTT, WIN, JST are loaded and a green "Approve" button and a yellow "Register" buton appears next to each asset.
+				Clicking approve for each token ensures that you approve your Will smart contract to transfer any balance from your account to the smart contract when it is established that your life has passed.
+				This method offers the benefit that you can keep using your accounts as normal and any balances left will only be transfered when necessary conditions are met.
+				Registering each token informs the Will smart contract that it can transfer (proividing approval has been passed) from your accoutn to your Will smart contract account.
+				Once for each of the tokens that you want to pass to your Will smart contract is approved and registered the buttons turn grey and become disabled.
+				Currently only USDT, BTT, WIN, JST tokens are compatible with the project as tryign to build proof of concept
 			  </p>
 			</Link>
 		  </li>
@@ -83,11 +81,11 @@ Currently only USDT, BTT, WIN, JST tokens are compatible with the project as try
 			  className="timeline-panel text-muted"
 			  to="/widget-basic"
 			>
-			  <strong className="text-primary">Register Beneficiaries</strong>
+			  <strong className="text-primary">Step 3 - Register Beneficiaries</strong>
 			  <p className="mb-0">
-			  In this page you have to type the heir tronlink address, the nickname you want to give them, the final message and the percentage allocation
-Clicking "Register Beneficiary" will register the account adn the releavnt detials in your will smart contract and a crad will appear on the left
-Note: You can come back at any point (while your will is still active) and Amed or Remove any of the beneficiaries
+				In this page you have to type the beneficiaries Tronlink address, any nickname you would like to give to the beneficiary account, the final message to them and their percentage allocation of the funds.
+				Clicking "Register Beneficiary" will register the account and the releavnt details in your will smart contract and a card will appear on the left of the screen.
+				Note: You can come back at any point (while your will is still active) and Amed or Remove any of the beneficiaries
 			  </p>
 			</Link>
 		  </li>
@@ -97,28 +95,43 @@ Note: You can come back at any point (while your will is still active) and Amed 
 			  className="timeline-panel text-muted"
 			  to="/widget-basic"
 			>
-			  <strong className="text-primary">Initiate Will</strong>
+			  <strong className="text-primary">STEP 4 - Back to HeartBeat Dashboard</strong>
 			  <p className="mb-0">
-			  ## STEP 4 Back to HeartBeat Dashboard
+			  
+				You can now click the "Initiate Will" Red button and this will Start the clock for your Will smart contract.
+				Note: You can only Initiate Will once
+				We can see that the Will State changes to "Activated" once the transaction has mined and the balances of USDT, JST, BTT and WIN for the following are all loaded:
+					Your registered Accounts (admin Accounts)
+					Your Will smart contract
+					Your beneficiaries
+				In addition, on the HeartBeat panel we can read:
 
-You can now click the "Initiate Will" Red button and this will Start the clock for your Will smart contract
+					Will State: True if it is active, false if it has not ben started or has expired (case of death)
+					Will Stage: Each active Will is allocated a stage which represents either the owners:
+						LACK OF ON-CHAIN ACTIVITY ON THEIR TRON BLOCKCHAIN ACCOUNTS
+						LACK OF RESPONSIVENESS IN THE DAPP.
+				As the owner of the will becomes less responsive and Proof Of Life hasnt been confirmed, the Will Stage setting will automatically rise accordingly.
 
-Note: You can only Initiate Will once
-We can see that the Will State changes to Activated once the transaction is mined and the balances of USDT, JST, BTT and WIN for:
-Your registered Accounts (admin Accounts)
-Your Will smart contract
-Your beneficiaries
-are loaded
-In addition on the HeartBeat panel we can read
-Will State: True if it is active, false if it has not ben started or has expired (case of death)
-Will Stage
-Each active Will start at stage 0, moves to 1 after 80 blocks, 2 after 70 blocks, 3 after 60 blocks, 4 after 50 blocks, 5 after 50 blocks and finally 6 after 10 blocks
-Up to stage 3 inclusive the smart contract checks if either the Will owner has signed any transaction with any of his refistered accounts (proof of life 1) or has intentionally clicked omn the HeartBeat Panel. If not progresses from 0 to 3.
-In a similar way the Will smart contract prgresses to stage 4 but once this stage is reached any fund balances of any of the registered account and tokens e.g. USDT, BTT, JST, WIN will be trnasferred to the Will smart contract
-We can see visually the movement of funds from registered accounts to the Will smart contract
-Note: Even at stage 4 the Will owner cna invoke the refundFunds function of the smart contract to take back his funds
-At stage 5 the will is released. The funds sitting at the Will smart contract are being transfered out to the registered heirs at the precepcified percentages. Finally the Will smart contract state becomes false
-Note: In the HeartBeat panel we can see the Bloc numbers for each triggere point and also how many blocks remain till the completion of each Phase
+				The WILL Stage counter starts at stage 0 and moves up as follows:
+					Stage 1 after 80 blocks
+					Stage 2 after an additional 20 blocks
+					Stage 3 after an additional 20 blocks
+					Stage 4 after an additional 50 blocks
+					Stage 5 after an additional 50 blocks
+					And finally Stage 6 after an additional 10 blocks
+
+					Up to Will Stage 3 inclusive the smart contract checks if either the Will owner has signed any transactions with any of his registered accounts or has intentionally clicked on the HeartBeat Panel in the DApp.
+				Either of these two events will demonstrate Proof Of Life and will therefore reset the stage counter.
+				If no proof of life is discovered then the stage counter is incremented to stage 4.
+				Once this stage is reached any fund balances of any of the account holders registered account and assets e.g. USDT, BTT, JST, WIN will be automatically tranasferred to the Will smart contract.
+				We can visually see this movement of funds from registered accounts to the Will smart contract in the dashboard.
+				Note: Even after the funds have been transferred at stage 4, the Will owner can still invoke the refundFunds function of the smart contract to take back their funds again.
+
+				At stage 5 the will is executed.
+				The funds inside the Will smart contract are automatically transfered out to the registered beneficiaries at the specified percentage distributions.
+				Finally the Will smart contract state becomes false (complete).
+				Note: In the HeartBeat panel we can see the Block numbers for each stage trigger point and also how many blocks remain util the completion of each stage.
+
 			  </p>
 			</Link>
 		  </li>
