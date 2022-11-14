@@ -152,7 +152,7 @@ function App (props) {
         const block_header = await tronWeb.trx.getCurrentBlock();
         console.log(`block_header: ${block_header.block_header.raw_data.number}`);
         setBlockHeader({number: `${block_header.block_header.raw_data.number}`})
-      },30000);
+      },10000);
     }
     
     if (tronWeb && tronAccount) {
